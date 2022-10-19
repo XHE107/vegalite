@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>Rainfall analysis in Australia(php.cn)</title> 
+<style>
+body 
+{
+	background-image:url('https://www.google.com/imgres?imgurl=http%3A%2F%2Fwww.bestgreenland.com.au%2FupLoad%2Fimage%2F20151218%2F14504198925510542.png&imgrefurl=http%3A%2F%2Fwww.bestgreenland.com.au%2Fwap%2Fcontent%2F%3F400.html&tbnid=JKHrm0BPo4ct8M&vet=12ahUKEwjLiv-li-b6AhV-VPUHHc_GDL0QMygAegUIARC_AQ..i&docid=u7J1Ezu5SWK9eM&w=867&h=598&q=%E6%BE%B3%E5%A4%A7%E5%88%A9%E4%BA%9A%E9%99%8D%E9%9B%A8%E9%87%8F%E5%88%86%E6%9E%90&ved=2ahUKEwjLiv-li-b6AhV-VPUHHc_GDL0QMygAegUIARC_AQ');
+	background-color:#cccccc;
+}
+</style>
+</head>
+    
+<head>
+    <title>Multiple Visualisations | An Example</title>
+    <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+
+    <!-- Import pure.css -->
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css" integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- CSS file -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
+
+</head>
+
+<body>
+
+    <div class="page">
+
+        <h2>Overview</h2>
+        <!-- pure grid group -->
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <div id="vis1" class="vis-container"></div>
+            </div>
+        </div>
+        <!-- end pure grid group -->
+        <br>
+
+<body>
+    <h1>Data</h1>
+
+    <div id="bar_chart">
+    </div>
+</body>
+         <p>
+The training set data consists of NEXRD and MADIS data collected over 20 days in the corn-growing states of the Midwestern United States between April and August 2014. The time and location information has been censored and the data has been shuffled so they are not sorted by time and location. The test data consisted of the same radar and gauge data for the remaining days of the month. See this article for a better understanding of polarimetric radar measurements.
+<p>
+    <body>
+    <h1>File description</h1>
+
+    <div id="bar_chart">
+    </div>
+</body>
+ <p>
+<html>
+
+<body>
+
+<p><font size="4" color="red">train.zip</font></p>
+
+</body>
+
+</html>
+train.zip - the training set. This file includes radar observations from meters in the U.S. Midwest over 20 days per month during the corn growing season. Meter observations at the end of each hour are also provided.<p>
+ <p>
+<html>
+
+<body>
+
+<p><font size="4" color="red">test.zip</font></p>
+
+</body>
+
+</html>
+test.zip - the test set. This file includes radar observations for the remaining 10 or 11 days per month in the US Midwest at the same time as the training set. You need to predict the meter observations at the end of each hour.<p>
+<html>
+
+<body>
+
+<p><font size="4" color="red">sample_solution.zip</font></p>
+
+</body>
+
+</html>
+sample_solution.zip - a properly formatted submission file.<p>
+<html>
+
+<body>
+
+<p><font size="4" color="red">sample_dask.py</font></p>
+
+</body>
+
+</html>
+sample_dask.py - The python sample program that will generate sample submission files. This program uses the Marshall-Palmer relationship to radar observations to predict instrument observations.<p>
+
+
+            <hr class="hr3">
+
+            <h2>Interactive multiple views</h2>
+            <!-- pure grid group -->
+            <div class="pure-g">
+                <div class="pure-u-1-1">
+                    <div id="vis2" class="vis-container"></div>
+                </div>
+            </div>
+            <!-- end pure grid group -->
+            <br>
+
+            <hr class="hr3">
+<body>
+    <h1>Thoughts on dates:</h1>
+
+    <div id="bar_chart">
+    </div>
+</body>
+ <p>
+①In fact, we can think that the date must be related to our results, and it will affect our labels from two perspectives:  <p>
+First, we can imagine that yesterday's weather may affect today's weather, and today's weather may affect tomorrow's weather. That is, as the date gradually changes, the sample is affected by the previous sample. But for algorithms, ordinary algorithms cannot capture the relationship between samples, our algorithm captures the relationship between each feature of the sample and the label (that is, the relationship between columns), And cannot capture the connection between samples (line-to-line connection).<p>
+② To make the algorithm understand that the label of the previous sample may affect the label of the next sample, we must use time series analysis. Time series analysis refers to a series of numbers formed by arranging the values ​​of the same statistical indicator in the order of their occurrence time. The main purpose of time series analysis is to predict the future based on existing historical data. However, (as far as I know) time series can only be run on a monotonic, unique time, i.e. only one location can be forecasted at a time, not many locations at once, except by looping. And our time data itself is neither monotonic nor unique. After sampling, it is not even continuous. Our time is a small period of time in each location mixed in multiple locations. How to use time series to deal with this problem becomes complicated.<p>
+
+            <h2>Zoomable Choropleth map with a time slider</h2>
+            <!-- pure grid group -->
+            <div class="pure-g">
+                <div class="pure-u-1-1">
+                    <div id="vis3" class="vis-container"></div>
+                </div>
+            </div>
+            <!-- end pure grid group -->
+            <br>
+
+            <hr class="hr3">
+<body>
+    <h1>Analyzing process of location features:</h1>
+
+    <div id="bar_chart">
+    </div>
+</body>
+<p>
+Common sense, we think that location must have an effect on whether it will rain tomorrow. For example, if no other information is given, and we only guess, "Will it rain tomorrow in London" and "Will it rain in Beijing tomorrow", I would definitely guess that it will rain in London, but not in Beijing, because London is A city that rains all year round, while Beijing's climate is very dry. For a country as large as Australia, there must be situations where different cities have different rain tendencies. But the embarrassing thing is that, like time, the name of the place we input is a string of characters to the algorithm, and "London" and "Beijing" are no different from 0 and 1 to the algorithm. Likewise, our sample contains 49 different locations, and if we do a component-type variable, the algorithm can't tell if it's a categorical variable at all. In other words, we need to make the algorithm realize that different locations have different effects on "whether it will rain tomorrow" because of different climates. If we can convert the location to the climate of the place, we can pack different cities into the same climate, and the rainfall response in the same climate should be similar
+<p>
+So now we are facing a difficult problem, which is how to convert the location into climate. We can take a look at the climate distribution in Australia. The map is taken from the official website of the Australian Bureau of Meteorology.
+It can be seen that Australia has a total of 8 climates. If 49 locations can be converted into eight different climates, this information should be more useful for judging whether it is raining.
+            <h2>Choropleth map in small multiples</h2>
+            <!-- pure grid group -->
+            <div class="pure-g">
+                <div class="pure-u-1-1">
+                    <div id="vis4" class="vis-container"></div>
+                </div>
+            </div>
+            <!-- end pure grid group -->
+
+            <hr class="hr3">
+
+            <div class="pure-g">
+                <div class="pure-u-1-1 small-font">
+               
+                </div>
+            </div>
+
+    </div>
+
+
+    <script type="text/javascript">
+        var specVis1 = "1_overview_detail.vg.json";
+        vegaEmbed('#vis1', specVis1);
+
+        var specVis2 = "2_interactive.vg.json";
+        vegaEmbed('#vis2', specVis2);
+
+        var specVis3 = "3_properties.vg.json";
+        vegaEmbed('#vis3', specVis3);
+
+        var specVis4 = "4_small_multiples.vg.json";
+        vegaEmbed('#vis4', specVis4);
+
+        print(brush)
+    </script>
+</body>
+
+</html>
