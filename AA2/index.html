@@ -81,15 +81,13 @@ The training set data consists of NEXRD and MADIS data collected over 20 days in
 
             <hr class="hr3">
 <body>
-    <h1>Thoughts on dates:</h1>
+    <h1>choropleth map</h1>
 
     <div id="bar_chart">
     </div>
 </body>
  <p>
-①In fact, we can think that the date must be related to our results, and it will affect our labels from two perspectives:  <p>
-First, we can imagine that yesterday's weather may affect today's weather, and today's weather may affect tomorrow's weather. That is, as the date gradually changes, the sample is affected by the previous sample. But for algorithms, ordinary algorithms cannot capture the relationship between samples, our algorithm captures the relationship between each feature of the sample and the label (that is, the relationship between columns), And cannot capture the connection between samples (line-to-line connection).<p>
-② To make the algorithm understand that the label of the previous sample may affect the label of the next sample, we must use time series analysis. Time series analysis refers to a series of numbers formed by arranging the values ​​of the same statistical indicator in the order of their occurrence time. The main purpose of time series analysis is to predict the future based on existing historical data. However, (as far as I know) time series can only be run on a monotonic, unique time, i.e. only one location can be forecasted at a time, not many locations at once, except by looping. And our time data itself is neither monotonic nor unique. After sampling, it is not even continuous. Our time is a small period of time in each location mixed in multiple locations. How to use time series to deal with this problem becomes complicated.<p>
+A choropleth map is a map that uses colors or patterns to associate specific statistics with predefined areas. A choropleth map is a gradient array, usually in one specific color, that displays the relative frequency of a statistic or feature shown. Each partition is assigned a shade or pattern based on the key, darker shades indicate greater density and then the individual units on the map are coloured accordingly so that by comparing their colour to the key it is easy to determine The distribution of precipitation for any given area. This type of map can be used to display almost any variable dataset, and it can be plotted to almost any scale that allows division. The relative distribution of land use, population, political affiliation and rainfall are just a few examples.<p>
 
             <h2>Zoomable Choropleth map with a time slider</h2>
             <!-- pure grid group -->
@@ -103,7 +101,7 @@ First, we can imagine that yesterday's weather may affect today's weather, and t
 
             <hr class="hr3">
 <body>
-    <h1>Analyzing process of location features:</h1>
+    <h1>interactive multiple views</h1>
 
     <div id="bar_chart">
     </div>
