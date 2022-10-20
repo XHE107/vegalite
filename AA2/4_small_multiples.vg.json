@@ -33,7 +33,7 @@
       },
       {
         "data": {
-          "url": "https://raw.githubusercontent.com/XHE107/vegalite/main/AA2/data/rainfall_by_suburb_wide_format.csv"
+          "url": "https://github.com/XHE107/vegalite/blob/main/AA2/data/rainfall_by_suburb_wide_format.csv"
         },
         "transform": [
           {
